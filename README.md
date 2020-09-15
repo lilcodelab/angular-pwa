@@ -18,3 +18,6 @@ By default your application will be hosted on http://localhost:4200 .
 If you want to build your Angular application, run command ```ng build```. For production build add production parameter ```ng build --prod```. 
 Inside your Angular application folder, ``dist`` folder will be created with compiled files.
 
+
+# Steps:
+    1. Install Angular, you can see description on this [link]'https://github.com/bpenovic/angular-pwa/tree/Init-Angular'
