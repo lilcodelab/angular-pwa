@@ -17,7 +17,6 @@ By default your application will be hosted on http://localhost:4200 .
 
 If you want to build your Angular application, run command ```ng build```. For production build add production parameter ```ng build --prod```. 
 Inside your Angular application folder, ``dist`` folder will be created with compiled files.
-
 ___
 ## Make Angular application as Progressive web application
 First you need to add Angular PWA package through Angular CLI ```ng add @angular/pwa```. This command made some changes inside a project: 
@@ -103,7 +102,6 @@ Responsive web design (RWD) is an approach of designing web application to adjus
 **
 
 **RWD reference [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design)
-
 
 ## References
 - https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
