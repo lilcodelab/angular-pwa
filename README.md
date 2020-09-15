@@ -1,8 +1,5 @@
 # Angular Progressive Web Application (PWA)
-This project shows how to setup Angular v10 project with PWA package. One of the important step in setup is configuring service worker, called NGSW.
-
-## Progressive Web Application (PWA)
-Description
+DESCRIPTION
 
 ## Requirements
 Angular requires a current, active LTS, or maintenance LTS version of Node.js.
@@ -22,15 +19,17 @@ By default your application will be hosted on http://localhost:4200 .
 If you want to build your Angular application, run command ```ng build```. For production build add production parameter ```ng build --prod```. 
 Inside your Angular application folder, ``dist`` folder will be created with compiled files.
 
-### Make Angular application as Progressive web application
+___
+## Make Angular application as Progressive web application
 First you need to add Angular PWA package through Angular CLI ```ng add @angular/pwa```. This command made some changes inside a project: 
 
 - Files ```ngsw-config.json``` and ```src/manifest.webmanifest``` are created.
 - Also some files are updated, such as ```angular.json```, ```package.json```, ```src/app.module.ts```, ```src/index.html ```.
 
-___
-
 ### Service worker
+Service worker is a script that runs in background of your browser, separeted from web application. The advantage of service worker is ability to handle a request, kind of interceptor. Because it can handle every request of application, offten is used as cache manager. Further more, service worker implements ```onfetch``` and ```onmessage``` handlers, that means push notifications are suporrted (depends on browser support).
+
+### Start service worker (NGSW)
 If you start your Angular application using ```ng serve```, the service worker should not be started.
 You can check that inside ***DevTools --> Applications --> Service Workers***.
 
@@ -40,12 +39,12 @@ First reason is because we are using development environment, inside ```src/app.
 1. Your browser must support service workers, you can check it on this [link]('https://caniuse.com/serviceworkers').
 2. In production environment use service workers with HTTPS protocol on your site.
 
- ##### Interceptor
+For development purposes, you can run service worker on the ```localhost``` but in the production environment we want to use **HTTPS**. Through service worker you have a ability to filter responses and hijack connections, we want to avoid [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack, using HTTPS protocol.
 
  ##### Cache
 
- 
  ##### Offline mode
+
  ##### Notifications
 
 ### Manifest 
