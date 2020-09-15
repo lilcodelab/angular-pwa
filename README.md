@@ -1,4 +1,4 @@
-# How to develop a Angular Progressive Web Application (PWA)
+# How to develop a Angular Progressive Web Application
 Progressive web applications are web applications served through the web browser, built using common web technologies such as HTML, CSS and JavaScript, with ability of offline work, push notifications and accesibility to hardware of device. They are often designed with resposinve principle, which means the design is adjusted for the screen size and make them looks like a native application.
 
 On of the main benefit of developing PWA application is less built time and smaller costs, if you are comparing them with developing of native applications. Furthermore, you dont need developers for each platform (Android, iOS), because they are build using common technologies.
