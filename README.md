@@ -1,5 +1,7 @@
 # Angular Progressive Web Application (PWA)
-DESCRIPTION
+Progressive web applications are web applications served through the web browser, built using common web technologies such as HTML, CSS and JavaScript, with ability of offline work, push notifications and accesibility to hardware of device. They are often designed with resposinve principle, which means the design is adjusted for the screen size and make them looks like a native application.
+
+On of the main benefit of developing PWA application is less built time and smaller costs, if you are comparing them with developing of native applications. Furthermore, you dont need developers for each platform (Android, iOS), because they are build using common technologies.
 
 ## Requirements
 Angular requires a current, active LTS, or maintenance LTS version of Node.js.
@@ -24,7 +26,7 @@ First you need to add Angular PWA package through Angular CLI ```ng add @angular
 - also some files are updated, such as ```angular.json```, ```package.json```, ```src/app.module.ts```, ```src/index.html ```.
 
 ### Service worker
-Service worker is a script that runs in background of your browser, separeted from web application. The advantage of service worker is ability to handle a request, kind of interceptor. Because it can handle every request of application, offten is used as cache manager. Further more, service worker implements ```onfetch``` and ```onmessage``` handlers, that means push notifications are suporrted (depends on browser support).
+Service worker is a script that runs in background of your browser, separeted from web application. The advantage of service worker is ability to handle a request, kind of interceptor. Because it can handle every request of application, offten is used as cache manager. Furthermore, service worker implements ```onfetch``` and ```onmessage``` handlers, that means push notifications are suporrted (depends on browser support).
 
 ### Start service worker (NGSW)
 If you start your Angular application using ```ng serve```, the service worker should not be started.
@@ -82,7 +84,7 @@ Furthermore, you can configure service worker to cache responses from APIs. Afte
 ```
 The Angular service worker can use either of two caching strategies for data resources.
 
- - **performance**  optimizes for responses that are as fast as possible. If a resource exists in the cache, the cached version is used, and no network request is made. This is suitable for resources that don't change often; for example, user avatar image.
+ - **performance** optimizes for responses that are as fast as possible. If a resource exists in the cache, the cached version is used, and no network request is made. This is suitable for resources that don't change often; for example, user avatar image.
 
  - **freshness** optimizes for currency of data. Only if the network times out, according to timeout, does the request fall back to the cache. This is useful for resources that change frequently; for example, account balances.
 
@@ -90,3 +92,25 @@ The Angular service worker can use either of two caching strategies for data res
 
 ### Manifest 
 Manifest file describes the application, necessery for web application to be installed and presented to user as "native" application. It provides information such as name, author, icon(s), version, display type, theme colors, etc.
+
+### Responsive web design
+Responsive web design (RWD) is an approach of designing web application to adjust for every screen size. Web application designed with RWD adapts the layout by using ```fluid and proportion-based grid```, ```flexible-images``` and ```CSS3 media queries```:
+
+- The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.[8]
+- Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element.[9]
+- Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, e.g. width of the rendering surface (browser window width or a physical display size).
+- Responsive layouts automatically adjust and adapt to any device screen size, whether it is a desktop, a laptop, a tablet, or a mobile phone.
+**
+
+**RWD reference [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design)
+
+
+## References
+- https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
+- https://developers.google.com/web/fundamentals/primers/service-workers
+- https://angular.io/guide/service-worker-intro
+- https://angular.io/guide/service-worker-config
+- https://caniuse.com/serviceworkers
+- https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/
+- https://en.wikipedia.org/wiki/Responsive_web_design
+- https://en.wikipedia.org/wiki/Man-in-the-middle_attack
