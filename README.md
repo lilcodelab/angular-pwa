@@ -104,7 +104,7 @@ Responsive web design (RWD) is an approach of designing web application to adjus
 
 ### Update packages
 Before you update all packages, frist update Angular version using ```ng update @angular/cli @angular/core```
-If you want to update packages to latest I recommend to install [npm-check-updates](npm i -g npm-check-updates). After that run command ```ncu -u``` which will update package.json to latest version of packages.
+If you want to update packages to latest I recommend to install [npm-check-updates](https://www.npmjs.com/package/npm-check-updates). After that run command ```ncu -u``` which will update package.json to latest version of packages.
 
 Maybe some packages will need to be downgrades, becauses they are dependency package of some other package. Be aware of it!
 ## References
