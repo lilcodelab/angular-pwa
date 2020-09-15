@@ -95,13 +95,13 @@ Manifest file describes the application, necessery for web application to be ins
 ### Responsive web design
 Responsive web design (RWD) is an approach of designing web application to adjust for every screen size. Web application designed with RWD adapts the layout by using ```fluid and proportion-based grid```, ```flexible-images``` and ```CSS3 media queries```:
 
-- The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.[8]
-- Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element.[9]
+- The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.
+- Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element.
 - Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, e.g. width of the rendering surface (browser window width or a physical display size).
 - Responsive layouts automatically adjust and adapt to any device screen size, whether it is a desktop, a laptop, a tablet, or a mobile phone.
-**
+***
 
-**RWD reference [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design)
+*** RWD reference [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design)
 
 ## References
 - https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
@@ -112,3 +112,5 @@ Responsive web design (RWD) is an approach of designing web application to adjus
 - https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/
 - https://en.wikipedia.org/wiki/Responsive_web_design
 - https://en.wikipedia.org/wiki/Man-in-the-middle_attack
+
+## Github https://github.com/bpenovic/angular-pwa
