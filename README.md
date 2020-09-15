@@ -113,4 +113,5 @@ Responsive web design (RWD) is an approach of designing web application to adjus
 - https://en.wikipedia.org/wiki/Responsive_web_design
 - https://en.wikipedia.org/wiki/Man-in-the-middle_attack
 
-## Github https://github.com/bpenovic/angular-pwa
+## Github
+https://github.com/bpenovic/angular-pwa
