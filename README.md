@@ -39,7 +39,7 @@ First reason is because we are using development environment, inside ```src/app.
 
 For development purposes, you can run service worker on the ```localhost``` but in the production environment we want to use **HTTPS**. Through service worker you have a ability to filter responses and hijack connections, we want to avoid [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack, using HTTPS protocol.
 
-#### Configure service worker **
+#### Configure service worker
 Inside file ```ngsw-config.json``` is configuration for service worker. Generated file includes configuration for statis files, such as fonts, images, script and style files. They are separated in two objects, depends on install or update mode:
 
 ***installMode***
@@ -87,7 +87,7 @@ The Angular service worker can use either of two caching strategies for data res
 
  - **freshness** optimizes for currency of data. Only if the network times out, according to timeout, does the request fall back to the cache. This is useful for resources that change frequently; for example, account balances.
 
-** Reference from [Angular documentation](https://angular.io/guide/service-worker-config)
+=> Reference from [Angular documentation](https://angular.io/guide/service-worker-config)
 
 ### Manifest 
 Manifest file describes the application, necessery for web application to be installed and presented to user as "native" application. It provides information such as name, author, icon(s), version, display type, theme colors, etc.
@@ -99,10 +99,8 @@ Responsive web design (RWD) is an approach of designing web application to adjus
 - Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element.
 - Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, e.g. width of the rendering surface (browser window width or a physical display size).
 - Responsive layouts automatically adjust and adapt to any device screen size, whether it is a desktop, a laptop, a tablet, or a mobile phone.
-***
 
-*** RWD reference [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design)
-
+=> RWD reference [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design)
 
 ### Update packages
 Before you update all packages, frist update Angular version using ```ng update @angular/cli @angular/core```
