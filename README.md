@@ -6,7 +6,7 @@ On of the main benefit of developing PWA application is less built time and smal
 ## Requirements
 Angular requires a current, active LTS, or maintenance LTS version of Node.js.
 
-## Setup Angular PWA application
+## Setup Angular application
 ### Install and setup Angular
 1. Install Angular CLI globally ```npm install -g @angular/cli```
 2. Generate new Angular app using Angular CLI, called AngularPWA ```ng new AngularPwa```
