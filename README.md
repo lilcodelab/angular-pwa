@@ -64,7 +64,7 @@ Furthermore, you can configure service worker to cache responses from APIs. Afte
       "name": "api-performance",
       "urls": ["apiUrl/subpath1/**"],
       "cacheConfig": {
-        "strategy": "performance"
+        "strategy": "performance",
         "maxAge": "7d",
         "maxSize": 100,
       }
