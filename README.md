@@ -34,7 +34,7 @@ You can check that inside ***DevTools --> Applications --> Service Workers***.
 First reason is because we are using development environment, inside ```src/app.module.ts``` there is rule ```ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })```, which is false. During development we can use service worker on ```localhost```, but in the production site we will need HTTPS setup on hosting server.
 
 **Requirements**
-1. Your browser must support service workers, you can check it on this [link]('https://caniuse.com/serviceworkers').
+1. Your browser must support service workers, you can check it on this [link](https://caniuse.com/serviceworkers).
 2. In production environment use service workers with HTTPS protocol on your site.
 
 For development purposes, you can run service worker on the ```localhost``` but in the production environment we want to use **HTTPS**. Through service worker you have a ability to filter responses and hijack connections, we want to avoid [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack, using HTTPS protocol.
