@@ -58,7 +58,7 @@ For resources already in the cache, the updateMode determines the caching behavi
 
 Furthermore, you can configure service worker to cache responses from APIs. After the ```"assetGroups":[]```, you need to add ```"dataGroups":[]```. For example:
 
-```
+```json
 "dataGroups": [
     {
       "name": "api-performance",
