@@ -122,6 +122,3 @@ Maybe some packages will need to be downgrades becauses they are dependency pack
 - https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/
 - https://en.wikipedia.org/wiki/Responsive_web_design
 - https://en.wikipedia.org/wiki/Man-in-the-middle_attack
-
-## Github
-https://github.com/bpenovic/angular-pwa
