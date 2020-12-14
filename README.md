@@ -1,7 +1,7 @@
 # How to develop a Angular Progressive Web Application
-Progressive web applications are web applications served through the web browser, built using common web technologies such as HTML, CSS and JavaScript, with ability of offline work, push notifications and accesibility to hardware of device. They are often designed with resposinve principle, which means the design is adjusted for the screen size and make them looks like a native application.
+Progressive web applications are web applications served through the web browser, built using common web technologies such as HTML, CSS, and JavaScript, with the ability to work offline, sending push notifications and accessibility to device hardware components. They are often designed with responsive principles, which means the design is adjusted for the screen size and makes it look like a native application.
 
-On of the main benefit of developing PWA application is less built time and smaller costs, if you are comparing them with developing of native applications. Furthermore, you dont need developers for each platform (Android, iOS), because they are build using common technologies.
+In comparison to developing native applications, one of the main benefits of developing PWA applications is less built time and reduced costs. Furthermore, you do not need developers for each platform (Android, iOS) because they are build using common technologies. These applications are a good use-case for internally used applications that are needed quickly or for a specific niche. 
 
 ## Requirements
 Angular requires a current, active LTS, or maintenance LTS version of Node.js.
@@ -12,51 +12,54 @@ Angular requires a current, active LTS, or maintenance LTS version of Node.js.
 2. Generate new Angular app using Angular CLI, called AngularPWA ```ng new AngularPwa```
 
 ### Start Angular application
-In period of development you can run application with command ```ng serve```.   
-By default your application will be hosted on http://localhost:4200 .  
+While developing you can run application with command ```ng serve```.   
+By default, your application will be hosted on http://localhost:4200 .  
 
 If you want to build your Angular application, run command ```ng build```. For production build add production parameter ```ng build --prod```. 
-Inside your Angular application folder, ``dist`` folder will be created with compiled files.
+Find your ``dist`` folder with compiled files within the Angular application folder.
 ___
 ## Make Angular application as Progressive web application
-First you need to add Angular PWA package through Angular CLI ```ng add @angular/pwa```. This command made some changes inside a project: 
+Add an Angular PWA package through Angular CLI ```ng add @angular/pwa```. This command makes changes within the project: 
 
 - files ```ngsw-config.json``` and ```src/manifest.webmanifest``` are created.
 - also some files are updated, such as ```angular.json```, ```package.json```, ```src/app.module.ts```, ```src/index.html ```.
 
 ### Service worker
-Service worker is a script that runs in background of your browser, separeted from web application. The advantage of service worker is ability to handle a request, kind of interceptor. Because it can handle every request of application, offten is used as cache manager. Furthermore, service worker implements ```onfetch``` and ```onmessage``` handlers, that means push notifications are suporrted (depends on browser support).
+The Service worker is a script that runs in background of your browser separeted from web application. The advantage of service worker is ability to handle a request, kind of interceptor.It can handle every application request and it is offten used as cache manager. Additionally, service worker implements ```onfetch``` and ```onmessage``` handlers, so push notifications are suporrted (depending on the browser support).
 
 ### Start service worker (NGSW)
 If you start your Angular application using ```ng serve```, the service worker should not be started.
 You can check that inside ***DevTools --> Applications --> Service Workers***.
 
-First reason is because we are using development environment, inside ```src/app.module.ts``` there is rule ```ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })```, which is false. During development we can use service worker on ```localhost```, but in the production site we will need HTTPS setup on hosting server.
+Here's why:
+
+You are using development environment, inside ```src/app.module.ts``` there is rule ```ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })```, which is false. During development we can use service worker on ```localhost```, but in the production site we will need HTTPS setup on hosting server.
 
 **Requirements**
 1. Your browser must support service workers, you can check it on this [link](https://caniuse.com/serviceworkers).
 2. In production environment use service workers with HTTPS protocol on your site.
 
-For development purposes, you can run service worker on the ```localhost``` but in the production environment we want to use **HTTPS**. Through service worker you have a ability to filter responses and hijack connections, we want to avoid [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack, using HTTPS protocol.
+For development purposes, you can run service worker on the ```localhost``` but in the production environment we want to use **HTTPS**.
+With the service worker you can filter responses and hijack connections. We want to avoid [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attack using HTTPS protocol.
 
 #### Configure service worker
-Inside file ```ngsw-config.json``` is configuration for service worker. Generated file includes configuration for statis files, such as fonts, images, script and style files. They are separated in two objects, depends on install or update mode:
+Inside the ```ngsw-config.json``` file is a configuration for service worker. The generated file includes configuration for statis files, such as fonts, images, script and style files. They are separated in two objects depending on the install or update mode:
 
 ***installMode***
 The installMode determines how these resources are initially cached. The installMode can be either of two values:
 
-- **prefetch** tells the Angular service worker to fetch every single listed resource while it's caching the current version of the app. This is bandwidth-intensive but ensures resources are available whenever they're requested, even if the browser is currently offline. 
+- **prefetch** - service worker fetches every single resource from list, while the new version application is caching. Even though this can be intensive for network bandwith, it ensures that resources are available when they are requested, even in application offline work.  
 
-- **lazy** does not cache any of the resources up front. Instead, the Angular service worker only caches resources for which it receives requests. This is an on-demand caching mode. Resources that are never requested will not be cached.
+- **lazy** - service worker caches a resource from list, only if that resource is requested. The resources that are not requested will not be cached.  
 
 ***updateMode***
 For resources already in the cache, the updateMode determines the caching behavior when a new version of the app is discovered:
 
-- **prefetch**- tells the service worker to download and cache the changed resources immediately.
+- **prefetch** - service worker fetchs and makes a cache of resources from list immediately.  
 
-- **lazy** tells the service worker to not cache those resources. Instead, it treats them as unrequested and waits until they're requested again before updating them. An updateMode of lazy is only valid if the installMode is also lazy.
+- **lazy** - service worker will update a cached resources when they are requested again. Lazy mode is only working if a installMode is also lazy one.  
 
-Furthermore, you can configure service worker to cache responses from APIs. After the ```"assetGroups":[]```, you need to add ```"dataGroups":[]```. For example:
+You can configure service worker to cache responses from APIs. After the ```"assetGroups":[]```, you need to add ```"dataGroups":[]```. For example:
 
 ```json
 "dataGroups": [
@@ -83,30 +86,30 @@ Furthermore, you can configure service worker to cache responses from APIs. Afte
 ```
 The Angular service worker can use either of two caching strategies for data resources.
 
- - **performance** optimizes for responses that are as fast as possible. If a resource exists in the cache, the cached version is used, and no network request is made. This is suitable for resources that don't change often; for example, user avatar image.
-
- - **freshness** optimizes for currency of data. Only if the network times out, according to timeout, does the request fall back to the cache. This is useful for resources that change frequently; for example, account balances.
+ - **performance** - used for resources that are not changed often. Service worker returns resource from cache, if a resource exist for current version of application in cache memory and network will not be send trought a network.  
+ 
+ - **freshness** - used for resources that are changed often. Service worker returns data from cache, only if network times out.  
 
 => Reference from [Angular documentation](https://angular.io/guide/service-worker-config)
 
 ### Manifest 
-Manifest file describes the application, necessery for web application to be installed and presented to user as "native" application. It provides information such as name, author, icon(s), version, display type, theme colors, etc.
+The manifest file describes the application, necessary for a web application to be installed and presented to the user as a "native" application. It provides information such as name, author, icon(s), version, display type, theme colors, etc.
 
 ### Responsive web design
 Responsive web design (RWD) is an approach of designing web application to adjust for every screen size. Web application designed with RWD adapts the layout by using ```fluid and proportion-based grid```, ```flexible-images``` and ```CSS3 media queries```:
 
-- The fluid grid concept calls for page element sizing to be in relative units like percentages, rather than absolute units like pixels or points.
-- Flexible images are also sized in relative units, so as to prevent them from displaying outside their containing element.
-- Media queries allow the page to use different CSS style rules based on characteristics of the device the site is being displayed on, e.g. width of the rendering surface (browser window width or a physical display size).
-- Responsive layouts automatically adjust and adapt to any device screen size, whether it is a desktop, a laptop, a tablet, or a mobile phone.
+- **The fluid grid** concept requests a developer to use a relative units for sizing of elements, for example percentages, view height, view width, and not absolute units such as pixels or points.
+- **Flexible images** are styled with using a relative units to adjust their size on container element resizing.
+- **Media queries** allow developer to apply a different CSS style rules based device or rendering surfrace (browser) characteristics such as height and width.
+- **Responsive layouts** adjust and adapt application layout to any device screen size.
 
 => RWD reference [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design)
 
 ### Update packages
 Before you update all packages, frist update Angular version using ```ng update @angular/cli @angular/core```
-If you want to update packages to latest I recommend to install [npm-check-updates](https://www.npmjs.com/package/npm-check-updates). After that run command ```ncu -u``` which will update package.json to latest version of packages.
+If you want to update packages to latest, I recommend to install [npm-check-updates](https://www.npmjs.com/package/npm-check-updates). After that run command ```ncu -u``` which will update package.json to the latest version of packages.
 
-Maybe some packages will need to be downgrades, becauses they are dependency package of some other package. Be aware of it!
+Maybe some packages will need to be downgrades becauses they are dependency package of some other package. Be aware of it!
 ## References
 - https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
 - https://developers.google.com/web/fundamentals/primers/service-workers
