@@ -86,7 +86,7 @@ You can configure service worker to cache responses from APIs. After the ```"ass
 ```
 The Angular service worker can use either of two caching strategies for data resources.
 
- - **performance** - used for resources that are not changed often. Service worker returns resource from cache, if a resource exist for current version of application in cache memory and network will not be send trought a network.  
+ - **performance** - used for resources that are not changed often. Service worker returns resource from cache, if a resource exist for current version of application in cache memory and network request will not be created.  
  
  - **freshness** - used for resources that are changed often. Service worker returns data from cache, only if network times out.  
 
@@ -98,10 +98,13 @@ The manifest file describes the application, necessary for a web application to 
 ### Responsive web design
 Responsive web design (RWD) is an approach of designing web application to adjust for every screen size. Web application designed with RWD adapts the layout by using ```fluid and proportion-based grid```, ```flexible-images``` and ```CSS3 media queries```:
 
-- **The fluid grid** concept requests a developer to use a relative units for sizing of elements, for example percentages, view height, view width, and not absolute units such as pixels or points.
-- **Flexible images** are styled with using a relative units to adjust their size on container element resizing.
-- **Media queries** allow developer to apply a different CSS style rules based device or rendering surfrace (browser) characteristics such as height and width.
-- **Responsive layouts** adjust and adapt application layout to any device screen size.
+- **The fluid grid** concept requests a developer to use a relative units for sizing of elements, for example percentages, view height, view width, and not absolute units such as pixels or points.  
+
+- **Flexible images** are styled with using a relative units to adjust their size on container element resizing.  
+
+- **Media queries** allow developer to apply a different CSS style rules based device or rendering surfrace (browser) characteristics such as height and width.  
+
+- **Responsive layouts** adjust and adapt application layout to any device screen size.  
 
 => RWD reference [Responsive design](https://en.wikipedia.org/wiki/Responsive_web_design)
 
